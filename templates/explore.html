@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore Exoplanets</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/explore.css') }}">
+</head>
+<body>
+  <nav>
+      <div class="logo"><a href="{{ url_for('index') }}">ExoTerra</a></div>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('explore') }}">Explore</a></li>
+        <li><a href="{{ url_for('team') }}">Team</a></li>
+        <li><a href="{{ url_for('data') }}">Data</a></li>
+      </ul>
+  </nav>
+  
+  <section class="section">
+    <h2>Add Data To AI Model</h2>
+    <div class="cards">
+      <div class="card csv">
+        <h3>Upload CSV</h3>
+        <p>Upload your own CSV file containing exoplanet data to enhance the AI model.</p>
+      </div>
+      <div class="card manually">
+        <h3>Upload Manually</h3>
+        <p>Manually enter exoplanet data to enhance the AI model.</p>
+      </div>
+    </div>
+  </section>
+  <script>
+    const csvCard = document.querySelector('.card.csv');
+    const manuallyCard = document.querySelector('.card.manually');
+    csvCard.addEventListener('click', () => {
+      window.location.href = '/upload';
+    });
+    manuallyCard.addEventListener('click', () => {
+      window.location.href = '/manually';
+    });
+  </script>
+</body>
+</html>
+

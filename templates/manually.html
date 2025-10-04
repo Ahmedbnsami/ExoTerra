@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manually.css') }}">
+</head>
+<body>
+    <nav>
+      <div class="logo"><a href="{{ url_for('index') }}">ExoTerra</a></div>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('explore') }}">Explore</a></li>
+        <li><a href="{{ url_for('team') }}">Team</a></li>
+        <li><a href="{{ url_for('data') }}">Data</a></li>
+      </ul>
+    </nav>
+
+    <section class="section">
+        <h2>Upload Data</h2>
+        <form action="{{ url_for('manually_form') }}" method="post" enctype="multipart/form-data">
+                <!-- Example future input -->
+                 <div class="form-grid">
+                    <div class="form-group">
+                        <label for="insolation_flux">Insolation Flux:</label>
+                        <input type="number" id="insolation_flux" name="insolation_flux" placeholder="Enter insolation flux">
+                    </div>
+                    <div class="form-group">
+                        <label for="transit_depth">Transit Depth:</label>
+                        <input type="number" id="transit_depth" name="transit_depth" placeholder="Enter transit depth">
+                    </div>
+                    <div class="form-group">
+                        <label for="stellar_rad">Stellar Radius:</label>
+                        <input type="number" id="stellar_rad" name="stellar_rad" placeholder="Enter stellar radius">
+                    </div>
+                    <div class="form-group">
+                        <label for="planet_radius">Planet Radius:</label>
+                        <input type="number" id="planet_radius" name="planet_radius" placeholder="Enter planet radius">
+                    </div>
+                    <div class="form-group">
+                        <label for="orbital_period">Orbital Period:</label>
+                        <input type="number" id="orbital_period" name="orbital_period" placeholder="Enter orbital period">
+                    </div>
+                    <div class="form-group">
+                        <label for="stellar_logg">Stellar Logg:</label>
+                        <input type="number" id="stellar_logg" name="stellar_logg" placeholder="Enter stellar logg">
+                    </div>
+                    <div class="form-group">
+                        <label for="mission">Mission:</label>
+                        <input type="text" id="mission" name="mission" placeholder="Enter mission name">
+                    </div>
+                    <div class="form-group">
+                        <label for="equilibrium_temp">Equilibrium Temperature:</label>
+                        <input type="number" id="equilibrium_temp" name="equilibrium_temp" placeholder="Enter equilibrium temperature">
+                    </div>
+                    <div class="form-group">
+                        <label for="stellar_teff">Stellar Effective Temperature:</label>
+                        <input type="number" id="stellar_teff" name="stellar_teff" placeholder="Enter stellar effective temperature">
+                    </div>
+                    <div class="form-group">
+                        <label for="transit_duration">Transit Duration:</label>
+                        <input type="number" id="transit_duration" name="transit_duration" placeholder="Enter transit duration">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Upload</button>
+        </form>
+    </section>
+    <script>
+        fetch('/get_response', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt: "" })
+        }).then(response => response.json())
+          .then(data => {
+              console.log('Response from server:', data);
+          });
+    </script>
+</body>
+</html>
