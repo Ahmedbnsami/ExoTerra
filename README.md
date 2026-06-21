@@ -132,7 +132,6 @@ Exoplanet detection relies on identifying periodic dips in stellar brightness ca
 ├── requirements.txt          # Python dependencies
 ```
 
-```
 
 ---
 
@@ -143,4 +142,4 @@ For educational and hackathon use (NASA Space Apps Challenge context).
 
 ## Status
 Active development / Hackathon project
-```
+
