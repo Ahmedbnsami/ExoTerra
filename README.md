@@ -108,28 +108,29 @@ Exoplanet detection relies on identifying periodic dips in stellar brightness ca
 - Improved interpretability for astrophysical validation
 
 ---
-
+```
 ├── ml/
-│   ├── train.py              # Model training pipeline (XGBoost training, evaluation)
+│   ├── train.py              # XGBoost training pipeline (data loading, training, evaluation)
+│   ├── preprocess.py         # Data preprocessing and feature engineering
 │   ├── model.pkl             # Serialized trained model for inference
-│   ├── preprocess.py         # Data cleaning, feature extraction, and transformation logic
 │
 ├── backend/
 │   ├── app.py                # Flask application entry point
-│   ├── routes.py             # API endpoints for predictions and requests handling
-│   ├── model_loader.py       # Loads and manages ML model for inference
+│   ├── routes.py             # API endpoints (prediction, health checks, requests handling)
+│   ├── model_loader.py       # Loads and manages trained ML model
 │
 ├── frontend/
-│   ├── index.html            # Main user interface structure
-│   ├── style.css             # UI styling and layout design
-│   ├── app.js                # Client-side logic and API communication
+│   ├── index.html            # Main UI structure
+│   ├── style.css             # Styling and layout
+│   ├── app.js                # Frontend logic and API communication
 │
 ├── data/
-│   ├── raw/                  # Raw astronomical datasets (unprocessed light curves)
+│   ├── raw/                  # Raw astronomical light curve datasets
 │   ├── processed/            # Cleaned and feature-engineered datasets
 │
-├── README.md                 # Project documentation and overview
-├── requirements.txt         # Python dependencies
+├── README.md                 # Project documentation
+├── requirements.txt          # Python dependencies
+```
 
 ```
 
